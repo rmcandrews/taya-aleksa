@@ -1,0 +1,24 @@
+{
+  "files": {
+    "main.css": "/taya-aleksa/static/css/main.e6227572.chunk.css",
+    "main.js": "/taya-aleksa/static/js/main.32690827.chunk.js",
+    "main.js.map": "/taya-aleksa/static/js/main.32690827.chunk.js.map",
+    "runtime-main.js": "/taya-aleksa/static/js/runtime-main.20e7b9dd.js",
+    "runtime-main.js.map": "/taya-aleksa/static/js/runtime-main.20e7b9dd.js.map",
+    "static/js/2.8d63f668.chunk.js": "/taya-aleksa/static/js/2.8d63f668.chunk.js",
+    "static/js/2.8d63f668.chunk.js.map": "/taya-aleksa/static/js/2.8d63f668.chunk.js.map",
+    "index.html": "/taya-aleksa/index.html",
+    "precache-manifest.e045308554450a27b62307649cc0a52c.js": "/taya-aleksa/precache-manifest.e045308554450a27b62307649cc0a52c.js",
+    "service-worker.js": "/taya-aleksa/service-worker.js",
+    "static/css/main.e6227572.chunk.css.map": "/taya-aleksa/static/css/main.e6227572.chunk.css.map",
+    "static/media/Logo_Black.svg": "/taya-aleksa/static/media/Logo_Black.1a598062.svg",
+    "static/media/Logo_BlackText.svg": "/taya-aleksa/static/media/Logo_BlackText.efd58969.svg",
+    "static/media/main.jpg": "/taya-aleksa/static/media/main.4bf0231d.jpg"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.20e7b9dd.js",
+    "static/js/2.8d63f668.chunk.js",
+    "static/css/main.e6227572.chunk.css",
+    "static/js/main.32690827.chunk.js"
+  ]
+}
