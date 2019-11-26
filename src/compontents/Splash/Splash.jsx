@@ -1,19 +1,24 @@
-import React, { useEffect, useState, useRef } from "react";
+import React, { useState, useRef } from "react";
 import P5Wrapper from "../P5Wrapper";
 
 const HEIGHT_SCALE = 341;
 const WIDTH_SCALE = 544;
 const STROKE_WIDTH = 21;
-const ANIMATION_LENGTH = 2.5; //seconds
-const DELAY_AFTER_ANIMATION_LENGTH = 1; //seconds
-const FADE_LENGTH = 1; //seconds
+const ANIMATION_LENGTH = 3; //seconds
+const DELAY_AFTER_ANIMATION_LENGTH = 1.5; //seconds
+const FADE_LENGTH = 1.5; //seconds
 const isDarkMode = false; // DARK MODE window.matchMedia("(prefers-color-scheme: dark)").matches;
 const LOGO_WIDTH = window.innerWidth > 400 ? 300 : window.innerWidth * 0.75;
 
 function Splash() {
+  const [shouldDisplay, setShouldDisplay] = useState(true);
+  const [fadeComplete, setFadeComplete] = useState(false);
+
   let sketch = useRef(p5 => {
     let boxWidth;
     let time = 0;
+    let scale = 1;
+    // let finishing = false;
     const COMPLETE_TIME = ANIMATION_LENGTH * 60;
 
     p5.setup = () => {
@@ -25,7 +30,20 @@ function Splash() {
     };
 
     p5.draw = () => {
-      if (time <= COMPLETE_TIME) time++;
+      if (time <= COMPLETE_TIME + 1) time++;
+      if (time === COMPLETE_TIME) {
+        setTimeout(() => {
+          setShouldDisplay(false);
+          // finishing = true;
+          setTimeout(() => {
+            setFadeComplete(true);
+          }, FADE_LENGTH * 1000);
+        }, DELAY_AFTER_ANIMATION_LENGTH * 1000);
+      }
+      // if (time > COMPLETE_TIME && finishing) {
+      //   scale += 0.05;
+      // }
+      p5.scale(scale);
       let percentComplete = time / COMPLETE_TIME;
       p5.background(isDarkMode ? 0 : 255);
       p5.fill(isDarkMode ? 255 : 0);
@@ -115,20 +133,6 @@ function Splash() {
       p5.endShape();
     };
   });
-  const [shouldDisplay, setShouldDisplay] = useState(true);
-  const [fadeComplete, setFadeComplete] = useState(false);
-
-  useEffect(() => {
-    const timer = setTimeout(() => {
-      setTimeout(() => {
-        setShouldDisplay(false);
-        setTimeout(() => {
-          setFadeComplete(true);
-        }, FADE_LENGTH * 1000);
-      }, DELAY_AFTER_ANIMATION_LENGTH * 1000);
-    }, ANIMATION_LENGTH * 1000);
-    return () => clearTimeout(timer);
-  }, []);
 
   let fadeStyle = shouldDisplay
     ? {}
@@ -152,7 +156,7 @@ function Splash() {
           width: "100%",
           height: "100%",
           opacity: 1,
-          zIndex: 1000,
+          zIndex: 100001,
           ...fadeStyle
         }}
       >

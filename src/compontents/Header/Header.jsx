@@ -11,17 +11,31 @@ function Header() {
   const [isMenuFixed, setMenuFixed] = useState(true);
 
   const onHamburgerClick = () => {
+    if (isMenuOpen) {
+      document.body.style.position = "";
+    } else {
+      document.body.style.position = "fixed";
+    }
     setMenuOpen(!isMenuOpen);
   };
 
+  const closeMenu = () => {
+    document.body.style.position = "";
+    setMenuOpen(false);
+  };
+
   return (
-    <React.Fragment>
+    <div>
       <Headroom
         className="mobileHeader"
         onPin={() => setMenuFixed(false)}
         onUnfix={() => setMenuFixed(true)}
       >
-        <header className={`mobileNav ${isMenuFixed ? "" : "shadow"}`}>
+        <header
+          className={`mobileHeader ${
+            isMenuFixed ? "" : isMenuOpen ? "" : "shadow"
+          }`}
+        >
           <button
             className={`hamburger hamburger--slider ${
               isMenuOpen ? "is-active" : ""
@@ -40,6 +54,29 @@ function Header() {
             height={35}
             style={{ position: "relative", paddingTop: 17.5 }}
           />
+          <div
+            className={`mobileNav${isMenuOpen ? " openNav" : ""}`}
+            style={{ textAlign: "center" }}
+          >
+            <ul style={{ margin: 0, padding: 20, listStyleType: "none" }}>
+              <Link
+                to="/"
+                onClick={closeMenu}
+                style={{ marginTop: "20px", display: "inline-block" }}
+              >
+                <li>HOME</li>
+              </Link>
+              <Link to="/portfolio" onClick={closeMenu}>
+                <li>PORTFOLIO</li>
+              </Link>
+              <Link to="/about" onClick={closeMenu}>
+                <li>ABOUT</li>
+              </Link>
+              <Link to="/contact" onClick={closeMenu}>
+                <li>CONTACT</li>
+              </Link>
+            </ul>
+          </div>
         </header>
       </Headroom>
       <div className="desktopHeader">
@@ -56,7 +93,7 @@ function Header() {
             src={blackLogoText}
             alt="Taya Aleksa Interiors"
             height={25}
-            style={{ position: "block", paddingTop: 20, paddingBottom: 10 }}
+            style={{ paddingTop: 20, paddingBottom: 10 }}
           />
         </div>
         <Sticky stickyClassName="sticky">
@@ -68,13 +105,17 @@ function Header() {
               <Link to="/portfolio">
                 <li>PORTFOLIO</li>
               </Link>
-              <li>ABOUT</li>
-              <li>CONTACT</li>
+              <Link to="/about">
+                <li>ABOUT</li>
+              </Link>
+              <Link to="/contact">
+                <li>CONTACT</li>
+              </Link>
             </ul>
           </header>
         </Sticky>
       </div>
-    </React.Fragment>
+    </div>
   );
 }
 
