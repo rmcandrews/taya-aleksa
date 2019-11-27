@@ -4,24 +4,54 @@ import Sticky from "react-sticky-el"; // TODO: Replace with css sticky
 import blackLogo from "../../assets/Logo_Black.svg";
 import blackLogoText from "../../assets/Logo_BlackText.svg";
 import "./Header.css";
-import { Link } from "react-router-dom";
+import { NavLink } from "react-router-dom";
+
+const desktopActiveLinkStyle = {
+  fontWeight: 500
+};
+
+const mobileActiveLinkStyle = {
+  opacity: 0.5
+};
 
 function Header() {
   const [isMenuOpen, setMenuOpen] = useState(false);
   const [isMenuFixed, setMenuFixed] = useState(true);
 
-  const onHamburgerClick = () => {
-    if (isMenuOpen) {
-      document.body.style.position = "";
-    } else {
-      document.body.style.position = "fixed";
-    }
-    setMenuOpen(!isMenuOpen);
-  };
-
   const closeMenu = () => {
     document.body.style.position = "";
     setMenuOpen(false);
+  };
+
+  const onHamburgerClick = () => {
+    if (isMenuOpen) {
+      closeMenu();
+    } else {
+      document.body.style.position = "fixed";
+      setMenuOpen(true);
+    }
+  };
+
+  const MobileLink = ({ exact, children, to }) => {
+    return (
+      <NavLink
+        exact={exact}
+        to={to}
+        onClick={closeMenu}
+        className="mobileNavLink"
+        activeStyle={mobileActiveLinkStyle}
+      >
+        <li>{children}</li>
+      </NavLink>
+    );
+  };
+
+  const DesktopLink = ({ exact, children, to }) => {
+    return (
+      <NavLink exact={exact} to={to} activeStyle={desktopActiveLinkStyle}>
+        <li>{children}</li>
+      </NavLink>
+    );
   };
 
   return (
@@ -32,15 +62,11 @@ function Header() {
         onUnfix={() => setMenuFixed(true)}
       >
         <header
-          className={`mobileHeader ${
-            isMenuFixed ? "" : isMenuOpen ? "" : "shadow"
-          }`}
+          className={`mobileHeader ${!isMenuFixed && !isMenuOpen && "shadow"}`}
         >
           <button
-            className={`hamburger hamburger--slider ${
-              isMenuOpen ? "is-active" : ""
-            }`}
-            style={{ position: "absolute", top: 7.5, left: 0 }}
+            className={`hamburger hamburger--slider ${isMenuOpen &&
+              "is-active"}`}
             onClick={onHamburgerClick}
             type="button"
           >
@@ -54,29 +80,16 @@ function Header() {
             height={35}
             style={{ position: "relative", paddingTop: 17.5 }}
           />
-          <div
-            className={`mobileNav${isMenuOpen ? " openNav" : ""}`}
-            style={{ textAlign: "center" }}
-          >
-            <ul style={{ margin: 0, padding: 20, listStyleType: "none" }}>
-              <Link
-                to="/"
-                onClick={closeMenu}
-                style={{ marginTop: "20px", display: "inline-block" }}
-              >
-                <li>HOME</li>
-              </Link>
-              <Link to="/portfolio" onClick={closeMenu}>
-                <li>PORTFOLIO</li>
-              </Link>
-              <Link to="/about" onClick={closeMenu}>
-                <li>ABOUT</li>
-              </Link>
-              <Link to="/contact" onClick={closeMenu}>
-                <li>CONTACT</li>
-              </Link>
+          <nav className={`mobileNav${isMenuOpen ? " openNav" : ""}`}>
+            <ul>
+              <MobileLink exact to="/">
+                HOME
+              </MobileLink>
+              <MobileLink to="/portfolio">PORTFOLIO</MobileLink>
+              <MobileLink to="/about">ABOUT</MobileLink>
+              <MobileLink to="/contact">CONTACT</MobileLink>
             </ul>
-          </div>
+          </nav>
         </header>
       </Headroom>
       <div className="desktopHeader">
@@ -97,21 +110,17 @@ function Header() {
           />
         </div>
         <Sticky stickyClassName="sticky">
-          <header className="nav" style={{ height: 33, padding: 10 }}>
-            <ul style={{ margin: 0, padding: 0 }}>
-              <Link to="/">
-                <li>HOME</li>
-              </Link>
-              <Link to="/portfolio">
-                <li>PORTFOLIO</li>
-              </Link>
-              <Link to="/about">
-                <li>ABOUT</li>
-              </Link>
-              <Link to="/contact">
-                <li>CONTACT</li>
-              </Link>
-            </ul>
+          <header className="desktopNav">
+            <nav>
+              <ul>
+                <DesktopLink exact to="/">
+                  HOME
+                </DesktopLink>
+                <DesktopLink to="/portfolio">PORTFOLIO</DesktopLink>
+                <DesktopLink to="/about">ABOUT</DesktopLink>
+                <DesktopLink to="/contact">CONTACT</DesktopLink>
+              </ul>
+            </nav>
           </header>
         </Sticky>
       </div>

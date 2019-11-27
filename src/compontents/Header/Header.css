@@ -46,20 +46,42 @@
   }
 }
 
+.mobileNav {
+  text-align: center;
+}
+
 .mobileNav li {
   padding: 10px 0px;
   font-size: 1.375rem;
+}
+
+.mobileNav ul {
+  margin: 0;
+  margin-top: 20px;
+  padding: 20px;
+  list-style-type: none;
+}
+
+.mobileNavLink {
+  display: block;
 }
 
 .shadow {
   box-shadow: 0px 1px 6px 0px rgba(0, 0, 0, 0.1);
 }
 
-.nav {
+.desktopNav {
   background-color: white;
+  height: 33px;
+  padding: 10px;
 }
 
-.nav li {
+.desktopNav ul {
+  margin: 0;
+  padding: 0;
+}
+
+.desktopNav li {
   display: inline-block;
   vertical-align: middle;
   padding: 8px 20px;
@@ -99,6 +121,9 @@ a:-webkit-any-link {
   border: 0;
   margin: 0;
   overflow: visible;
+  position: absolute;
+  top: 7.5px;
+  left: 0;
 }
 .hamburger:hover {
   opacity: 1;
