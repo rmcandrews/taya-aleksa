@@ -7,7 +7,7 @@ import { Home, About, Contact, Portfolio, NotFound } from "./pages";
 
 function App() {
   return (
-    <Suspense fallback={<div>Loading... </div>}>
+    <Suspense fallback={<div></div>}>
       <React.Fragment>
         {process.env.REACT_APP_SHOW_SPLASH === "true" && (
           <Splash marginTop={20} logoWidth={125} />
