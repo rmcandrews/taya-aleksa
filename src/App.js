@@ -2,10 +2,8 @@ import React from "react";
 import Splash from "./compontents/Splash";
 import Header from "./compontents/Header";
 import Footer from "./compontents/Footer";
-import { HashRouter, Route, Switch } from "react-router-dom";
-import Home from "./pages/Home";
-import Portfolio from "./pages/Portfolio";
-import NotFound from "./pages/NotFound";
+import { HashRouter, Route, Switch, Redirect } from "react-router-dom";
+import { Home, About, Contact, Portfolio, NotFound } from "./pages";
 
 function App() {
   return (
@@ -15,11 +13,16 @@ function App() {
       )}
       <HashRouter basename="/">
         <Header />
-        <div style={{ padding: "0px 20px 40px" }}>
+        <div style={{ padding: "10px 20px 40px", minHeight: 500 }}>
           <Switch>
             <Route exact path="/" component={Home} />
-            <Route exact path="/portfolio" component={Portfolio} />
-            <Route path="*" component={NotFound} />
+            <Route path="/portfolio" component={Portfolio} />
+            <Route exact path="/about" component={About} />
+            <Route exact path="/contact" component={Contact} />
+            <Route path="/not-found" component={NotFound} />
+            <Route>
+              <Redirect to="/not-found" />
+            </Route>
           </Switch>
         </div>
         <Footer />

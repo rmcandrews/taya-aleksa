@@ -2,10 +2,14 @@ import React from "react";
 import { Fade } from "react-slideshow-image";
 
 import "./Slideshow.css";
-import image1 from "../../../assets/main.jpg";
-import image2 from "../../../assets/main2.jpg";
 
-const images = [image1, image2];
+const categoryNames = ["living", "kitchen", "bedroom"];
+let images = [];
+categoryNames.forEach(categoryName =>
+  images.push(
+    `${process.env.PUBLIC_URL}/assets/images/portfolio/${categoryName}/0_cover.jpg`
+  )
+);
 
 const properties = {
   duration: 10000,
@@ -16,16 +20,14 @@ const properties = {
 };
 
 const Slideshow = () => {
+  const slides = images.map((image, i) => (
+    <div className="each-slide" key={i}>
+      <div style={{ backgroundImage: `url(${image})` }} />
+    </div>
+  ));
   return (
     <div className="slide-container">
-      <Fade {...properties}>
-        <div className="each-slide">
-          <div style={{ backgroundImage: `url(${images[0]})` }} />
-        </div>
-        <div className="each-slide">
-          <div style={{ backgroundImage: `url(${images[1]})` }} />
-        </div>
-      </Fade>
+      <Fade {...properties}>{slides}</Fade>
     </div>
   );
 };

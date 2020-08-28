@@ -1,6 +1,6 @@
 import React from "react";
 import Slideshow from "./components/Slideshow";
-import blackLogoText from "../../assets/Logo_BlackText.svg";
+import blackLogoText from "../../assets/icons/Logo_BlackText.svg";
 import "./Home.css";
 
 function Home() {

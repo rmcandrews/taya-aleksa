@@ -1,13 +1,14 @@
 import React, { useState } from "react";
 import Headroom from "react-headroom";
 import Sticky from "react-sticky-el"; // TODO: Replace with css sticky
-import blackLogo from "../../assets/Logo_Black.svg";
-import blackLogoText from "../../assets/Logo_BlackText.svg";
+import blackLogo from "../../assets/icons/Logo_Black.svg";
+import blackLogoText from "../../assets/icons/Logo_BlackText.svg";
 import "./Header.css";
 import { NavLink } from "react-router-dom";
 
 const desktopActiveLinkStyle = {
-  fontWeight: 500
+  fontWeight: 500,
+  color: "#000"
 };
 
 const mobileActiveLinkStyle = {
@@ -48,7 +49,17 @@ function Header() {
 
   const DesktopLink = ({ exact, children, to }) => {
     return (
-      <NavLink exact={exact} to={to} activeStyle={desktopActiveLinkStyle}>
+      <NavLink
+        exact={exact}
+        to={to}
+        style={{ color: "#595959" }}
+        activeStyle={desktopActiveLinkStyle}
+        onClick={() => {
+          if (window.scrollY > 185 && window.innerWidth > 767)
+            window.scrollTo(0, 185);
+          if (window.innerWidth <= 767) window.scrollTo(0, 0);
+        }}
+      >
         <li>{children}</li>
       </NavLink>
     );
@@ -78,7 +89,7 @@ function Header() {
             src={blackLogo}
             alt="Taya Aleksa Interiors Logo"
             height={35}
-            style={{ position: "relative", paddingTop: 17.5 }}
+            style={{ position: "relative" }}
           />
           <nav className={`mobileNav${isMenuOpen ? " openNav" : ""}`}>
             <ul>

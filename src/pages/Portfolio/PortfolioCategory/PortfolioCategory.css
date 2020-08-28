@@ -1,0 +1,19 @@
+.sub-header {
+  text-align: center;
+  margin-top: -10px;
+  margin-left: -35px;
+  width: 100vw;
+}
+
+@media screen and (max-width: 767px) {
+  .sub-header {
+    display: none;
+  }
+}
+
+.sub-header-sticky {
+  top: 53px !important;
+  z-index: 10001;
+  box-shadow: 0 4px 2px -2px rgba(0, 0, 0, 0.1);
+  width: 100vw;
+}

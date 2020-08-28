@@ -2,7 +2,7 @@
 import React from "react";
 import "./Footer.css";
 
-import instagramIcon from "../../assets/icon-instagram.svg";
+import instagramIcon from "../../assets/icons/icon-instagram.svg";
 
 function Footer() {
   return (

@@ -1,0 +1,29 @@
+.container {
+  text-align: center;
+  font-weight: 500;
+}
+
+.profilePicture {
+  filter: grayscale(100%);
+  width: 100%;
+  max-width: 380px;
+}
+
+.infoList {
+  list-style: none;
+  padding: 0;
+}
+
+.infoList > li > h2 {
+  font-weight: 300;
+  margin: 2rem 0 0.5rem;
+}
+
+.infoList > li:nth-child(1) > h2 {
+  margin-top: 0;
+}
+
+.infoList > li > p {
+  font-weight: 300;
+  margin-top: 0;
+}
