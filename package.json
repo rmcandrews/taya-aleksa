@@ -1,6 +1,7 @@
 {
   "name": "website",
   "version": "0.1.0",
+  "homepage": "https://rmcandrews.github.io/taya-aleksa",
   "private": true,
   "dependencies": {
     "react": "^16.12.0",
