@@ -66,3 +66,7 @@ a:hover,
 a:active {
   text-decoration: none;
 }
+
+img {
+  margin: 1rem 0rem;
+}
