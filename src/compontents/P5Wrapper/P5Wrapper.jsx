@@ -1,4 +1,5 @@
 import React, { useEffect, useRef } from "react";
+import p5 from "p5";
 import PropTypes from "prop-types";
 
 export default function() {
@@ -8,7 +9,7 @@ export default function() {
     const sketchContainer = useRef(null);
 
     useEffect(() => {
-      canvas = new window.p5(sketch, sketchContainer.current);
+      canvas = new p5(sketch, sketchContainer.current);
 
       return () => {
         canvas.remove();

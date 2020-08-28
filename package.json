@@ -4,6 +4,7 @@
   "homepage": "https://rmcandrews.github.io/taya-aleksa",
   "private": true,
   "dependencies": {
+    "p5": "^1.1.9",
     "react": "^16.12.0",
     "react-dom": "^16.12.0",
     "react-flexbox-grid": "^2.1.2",
