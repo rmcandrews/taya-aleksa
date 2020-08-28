@@ -18,13 +18,25 @@ const Contact = () => {
         <li>
           <h2>SOCIALS</h2>
           <div className={styles.socialsList}>
-            <a href="https://www.instagram.com/taya.aleksa/">
+            <a
+              href="https://www.instagram.com/taya.aleksa/"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
               <img src={instagramIcon} alt="instagram" />
             </a>
-            <a href="https://in.pinterest.com/beasleyla/">
+            <a
+              href="https://in.pinterest.com/beasleyla/"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
               <img src={pinterestIcon} alt="pinterest" />
             </a>
-            <a href="https://www.linkedin.com/in/taya-lyskanycz-b23b5a29/">
+            <a
+              href="https://www.linkedin.com/in/taya-lyskanycz-b23b5a29/"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
               <img src={linkedInIcon} alt="linkedin" />
             </a>
           </div>

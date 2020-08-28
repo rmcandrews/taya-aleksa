@@ -12,7 +12,7 @@ const desktopActiveLinkStyle = {
 };
 
 const mobileActiveLinkStyle = {
-  opacity: 0.5
+  opacity: 0.8
 };
 
 function Header() {
@@ -78,6 +78,7 @@ function Header() {
           <button
             className={`hamburger hamburger--slider ${isMenuOpen &&
               "is-active"}`}
+            aria-label="toggle-menu"
             onClick={onHamburgerClick}
             type="button"
           >

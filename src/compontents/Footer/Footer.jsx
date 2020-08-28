@@ -11,6 +11,7 @@ function Footer() {
       <a
         className="instagramIconLink"
         target="_blank"
+        rel="noopener noreferrer"
         href="https://www.instagram.com/taya.aleksa/"
       >
         <img src={instagramIcon} height="60px" alt="Instagram" />
