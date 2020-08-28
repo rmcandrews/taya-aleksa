@@ -1,8 +1,8 @@
 import React from "react";
 import styles from "./Contact.module.css";
 
-import instagramIcon from "../../assets/icons/icon-instagram.svg";
-import pinterestIcon from "../../assets/icons/icon-pinterest.svg";
+import instagramIcon from "../../assets/icons/icon-ig.svg";
+import pinterestIcon from "../../assets/icons/icon-pin.svg";
 import linkedInIcon from "../../assets/icons/icons-linkedin.svg";
 
 const Contact = () => {
