@@ -1,15 +1,15 @@
 {
   "files": {
     "main.css": "/taya-aleksa/static/css/main.28f5dde9.chunk.css",
-    "main.js": "/taya-aleksa/static/js/main.16937247.chunk.js",
-    "main.js.map": "/taya-aleksa/static/js/main.16937247.chunk.js.map",
+    "main.js": "/taya-aleksa/static/js/main.0e42fcbd.chunk.js",
+    "main.js.map": "/taya-aleksa/static/js/main.0e42fcbd.chunk.js.map",
     "runtime-main.js": "/taya-aleksa/static/js/runtime-main.4a0dcb31.js",
     "runtime-main.js.map": "/taya-aleksa/static/js/runtime-main.4a0dcb31.js.map",
     "static/css/2.3671c6e6.chunk.css": "/taya-aleksa/static/css/2.3671c6e6.chunk.css",
     "static/js/2.9751283f.chunk.js": "/taya-aleksa/static/js/2.9751283f.chunk.js",
     "static/js/2.9751283f.chunk.js.map": "/taya-aleksa/static/js/2.9751283f.chunk.js.map",
     "index.html": "/taya-aleksa/index.html",
-    "precache-manifest.993ccee15a5df680b40d15395c3140e0.js": "/taya-aleksa/precache-manifest.993ccee15a5df680b40d15395c3140e0.js",
+    "precache-manifest.7bb84f1efa3350c9abfdd4a1e66443f2.js": "/taya-aleksa/precache-manifest.7bb84f1efa3350c9abfdd4a1e66443f2.js",
     "service-worker.js": "/taya-aleksa/service-worker.js",
     "static/css/2.3671c6e6.chunk.css.map": "/taya-aleksa/static/css/2.3671c6e6.chunk.css.map",
     "static/css/main.28f5dde9.chunk.css.map": "/taya-aleksa/static/css/main.28f5dde9.chunk.css.map",
@@ -25,6 +25,6 @@
     "static/css/2.3671c6e6.chunk.css",
     "static/js/2.9751283f.chunk.js",
     "static/css/main.28f5dde9.chunk.css",
-    "static/js/main.16937247.chunk.js"
+    "static/js/main.0e42fcbd.chunk.js"
   ]
 }
