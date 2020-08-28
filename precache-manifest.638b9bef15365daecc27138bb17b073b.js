@@ -1,6 +1,6 @@
 self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
-    "revision": "0c00ecb690d00d9d11f9c4a26459b463",
+    "revision": "be2ee6c0ded7e69ab4a15bb5b048c409",
     "url": "/taya-aleksa/index.html"
   },
   {
@@ -8,7 +8,7 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/taya-aleksa/static/css/2.3671c6e6.chunk.css"
   },
   {
-    "revision": "5bfe2a40baf11b9765e9",
+    "revision": "3c5dbc37a65fa1c3c41b",
     "url": "/taya-aleksa/static/css/main.28f5dde9.chunk.css"
   },
   {
@@ -20,8 +20,8 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/taya-aleksa/static/js/2.b6f64d8d.chunk.js.LICENSE.txt"
   },
   {
-    "revision": "5bfe2a40baf11b9765e9",
-    "url": "/taya-aleksa/static/js/main.a3f3508c.chunk.js"
+    "revision": "3c5dbc37a65fa1c3c41b",
+    "url": "/taya-aleksa/static/js/main.655fba64.chunk.js"
   },
   {
     "revision": "b4be9d8c1dff6a7395f0",
@@ -37,11 +37,11 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
   },
   {
     "revision": "9dd853ddabf7f0c223d2b21a3a23d843",
-    "url": "/taya-aleksa/static/media/icon-instagram.9dd853dd.svg"
+    "url": "/taya-aleksa/static/media/icon-ig.9dd853dd.svg"
   },
   {
     "revision": "d634e3a6e0a324f28927502daba2212b",
-    "url": "/taya-aleksa/static/media/icon-pinterest.d634e3a6.svg"
+    "url": "/taya-aleksa/static/media/icon-pin.d634e3a6.svg"
   },
   {
     "revision": "39ffcc8572691a50972011c084366abf",

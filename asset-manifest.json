@@ -1,23 +1,23 @@
 {
   "files": {
     "main.css": "/taya-aleksa/static/css/main.28f5dde9.chunk.css",
-    "main.js": "/taya-aleksa/static/js/main.a3f3508c.chunk.js",
-    "main.js.map": "/taya-aleksa/static/js/main.a3f3508c.chunk.js.map",
+    "main.js": "/taya-aleksa/static/js/main.655fba64.chunk.js",
+    "main.js.map": "/taya-aleksa/static/js/main.655fba64.chunk.js.map",
     "runtime-main.js": "/taya-aleksa/static/js/runtime-main.4a0dcb31.js",
     "runtime-main.js.map": "/taya-aleksa/static/js/runtime-main.4a0dcb31.js.map",
     "static/css/2.3671c6e6.chunk.css": "/taya-aleksa/static/css/2.3671c6e6.chunk.css",
     "static/js/2.b6f64d8d.chunk.js": "/taya-aleksa/static/js/2.b6f64d8d.chunk.js",
     "static/js/2.b6f64d8d.chunk.js.map": "/taya-aleksa/static/js/2.b6f64d8d.chunk.js.map",
     "index.html": "/taya-aleksa/index.html",
-    "precache-manifest.0bd38051b0c31a1fdedc73e34c12ed35.js": "/taya-aleksa/precache-manifest.0bd38051b0c31a1fdedc73e34c12ed35.js",
+    "precache-manifest.638b9bef15365daecc27138bb17b073b.js": "/taya-aleksa/precache-manifest.638b9bef15365daecc27138bb17b073b.js",
     "service-worker.js": "/taya-aleksa/service-worker.js",
     "static/css/2.3671c6e6.chunk.css.map": "/taya-aleksa/static/css/2.3671c6e6.chunk.css.map",
     "static/css/main.28f5dde9.chunk.css.map": "/taya-aleksa/static/css/main.28f5dde9.chunk.css.map",
     "static/js/2.b6f64d8d.chunk.js.LICENSE.txt": "/taya-aleksa/static/js/2.b6f64d8d.chunk.js.LICENSE.txt",
     "static/media/Logo_Black.svg": "/taya-aleksa/static/media/Logo_Black.1a598062.svg",
     "static/media/Logo_BlackText.svg": "/taya-aleksa/static/media/Logo_BlackText.efd58969.svg",
-    "static/media/icon-instagram.svg": "/taya-aleksa/static/media/icon-instagram.9dd853dd.svg",
-    "static/media/icon-pinterest.svg": "/taya-aleksa/static/media/icon-pinterest.d634e3a6.svg",
+    "static/media/icon-ig.svg": "/taya-aleksa/static/media/icon-ig.9dd853dd.svg",
+    "static/media/icon-pin.svg": "/taya-aleksa/static/media/icon-pin.d634e3a6.svg",
     "static/media/icons-linkedin.svg": "/taya-aleksa/static/media/icons-linkedin.39ffcc85.svg"
   },
   "entrypoints": [
@@ -25,6 +25,6 @@
     "static/css/2.3671c6e6.chunk.css",
     "static/js/2.b6f64d8d.chunk.js",
     "static/css/main.28f5dde9.chunk.css",
-    "static/js/main.a3f3508c.chunk.js"
+    "static/js/main.655fba64.chunk.js"
   ]
 }
