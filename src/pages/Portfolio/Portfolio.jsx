@@ -16,23 +16,31 @@ const categoryOverviews = categories.map(category => {
   return (
     <Col xs={12} sm={6} lg={4} className="col" key={title}>
       <Link to={`/portfolio/${path}`}>
-        <div>
-          <ProgressiveImage src={image.src} placeholder={image.placeholder}>
-            {(src, loading) => (
+        <div style={{ position: "relative" }}>
+          <ProgressiveImage
+            src={image.medium}
+            srcSetData={{
+              srcSet: `${image.small} 500w, ${image.medium} 1000w, ${image.large} 1500w`,
+              sizes: "(max-width: 575px) 75vw, (max-width: 575px) 45vw, 30vw"
+            }}
+            placeholder={image.placeholder}
+          >
+            {(src, loading, srcSetData) => (
               <img
                 width="90%"
                 style={{
-                  filter: loading ? "blur(3px)" : "",
-                  transition: "500ms -webkit-filter linear",
-                  height: "auto"
+                  height: "auto",
+                  opacity: loading ? 0.75 : 1
                 }}
                 src={src}
+                srcSet={srcSetData.srcSet}
+                sizes={srcSetData.sizes}
                 alt={title}
               />
             )}
           </ProgressiveImage>
+          <div>{title}</div>
         </div>
-        <div>{title}</div>
       </Link>
     </Col>
   );

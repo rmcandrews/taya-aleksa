@@ -3,7 +3,7 @@ import { Fade } from "react-slideshow-image";
 
 import "./Slideshow.css";
 
-const categoryNames = ["living", "kitchen", "bedroom"];
+const categoryNames = ["kitchen", "bedroom"];
 let images = [];
 categoryNames.forEach(categoryName =>
   images.push(

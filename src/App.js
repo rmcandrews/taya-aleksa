@@ -14,7 +14,7 @@ function App() {
         )}
         <HashRouter basename="/">
           <Header />
-          <div style={{ padding: "10px 20px 40px", minHeight: 500 }}>
+          <div style={{ padding: "10px 20px 30px" }}>
             <Switch>
               <Route exact path="/" component={Home} />
               <Route path="/portfolio" component={Portfolio} />
