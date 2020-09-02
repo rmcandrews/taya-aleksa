@@ -49,6 +49,7 @@ const SelectField = ({ options, field, form }) => {
   };
   return (
     <Select
+      isSearchable={false}
       options={options}
       name={field.name}
       value={
