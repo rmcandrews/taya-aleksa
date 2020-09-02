@@ -1,14 +1,12 @@
 import React from "react";
 import styles from "./Contact.module.css";
-
-import instagramIcon from "../../assets/icons/icon-ig.svg";
-import pinterestIcon from "../../assets/icons/icon-pin.svg";
-import linkedInIcon from "../../assets/icons/icons-linkedin.svg";
+import ContactForm from "./components/ContactForm";
 
 const Contact = () => {
   return (
     <div className={styles.container}>
-      <ol className={styles.list}>
+      <ContactForm />
+      {/* <ol className={styles.list}>
         <li>
           <h2>EMAIL</h2>
           <p style={{ fontSize: 20 }}>
@@ -41,7 +39,7 @@ const Contact = () => {
             </a>
           </div>
         </li>
-      </ol>
+      </ol> */}
     </div>
   );
 };

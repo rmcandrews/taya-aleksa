@@ -4,6 +4,7 @@
   "homepage": "https://rmcandrews.github.io/taya-aleksa",
   "private": true,
   "dependencies": {
+    "formik": "^2.1.5",
     "p5": "^1.1.9",
     "react": "^16.12.0",
     "react-dom": "^16.12.0",
@@ -15,6 +16,7 @@
     "react-reveal": "^1.2.2",
     "react-router-dom": "^5.1.2",
     "react-scripts": "^3.4.3",
+    "react-select": "^3.1.0",
     "react-slideshow-image": "^1.3.1",
     "react-sticky-el": "^1.1.0",
     "uninstall": "0.0.0"
