@@ -121,7 +121,6 @@ textarea:-ms-input-placeholder {
   font-size: 13px;
   color: #666666;
   line-height: 1.5;
-  padding-left: 5px;
   width: 100%;
   font-size: 14px;
 }
@@ -131,9 +130,10 @@ textarea:-ms-input-placeholder {
   width: 100%;
   background: transparent;
   font-size: 16px;
-  color: #333333;
   line-height: 1.2;
-  padding: 0 5px;
+  padding: 0 10px;
+  font-weight: 500;
+  color: hsl(0, 0%, 20%);
 }
 
 .focusInput {
@@ -154,12 +154,7 @@ textarea:-ms-input-placeholder {
   left: 0;
   width: 0;
   height: 2px;
-
-  -webkit-transition: all 0.4s;
-  -o-transition: all 0.4s;
-  -moz-transition: all 0.4s;
   transition: all 0.4s;
-
   background: #7f7f7f;
 }
 
@@ -176,6 +171,10 @@ textarea.input {
 }
 
 .input:focus + .focusInput::before {
+  width: 100%;
+}
+
+.select:focus-within + .focusInput::before {
   width: 100%;
 }
 

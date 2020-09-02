@@ -3,14 +3,19 @@ import { Formik, Form, Field } from "formik";
 import Select from "react-select";
 import styles from "./ContactForm.module.css";
 
-const FormInput = ({ type, name, label, required }) => {
+const FormInput = ({ type, name, label, required, pattern }) => {
   return (
     <div className={`${styles.wrapInput} ${styles.validateInput}`}>
       <label class={styles.labelInput} htmlFor={name}>
         {label}
         {required ? " *" : ""}
       </label>
-      <Field className={styles.input} type={type} name={name} />
+      <Field
+        className={styles.input}
+        type={type}
+        name={name}
+        pattern={pattern}
+      />
       <span className={styles.focusInput} />
     </div>
   );
@@ -37,18 +42,22 @@ const FormTextArea = ({ type, name, label, required, placeholder }) => {
 
 const SelectField = ({ options, field, form }) => {
   const customStyle = {
-    control: (base, state) => ({
+    control: base => ({
       ...base,
       border: "0 !important",
       boxShadow: "0 !important",
       "&:hover": {
         border: "0 !important"
       },
-      outline: "none"
+      outline: "none",
+      fontFamily: "inherit",
+      fontWeight: 400
     })
   };
   return (
     <Select
+      openMenuOnFocus={true}
+      className={styles.select}
       isSearchable={false}
       options={options}
       name={field.name}
@@ -83,7 +92,6 @@ const FormSelectField = ({ type, name, label, required, options }) => {
         {required ? " *" : ""}
       </label>
       <Field
-        className={styles.input}
         type={type}
         name={name}
         component={SelectField}
@@ -124,12 +132,18 @@ const Contact = () => {
               <FormInput type="text" name="name" label="Name" required />
               <FormInput type="email" name="email" label="Email" required />
               <FormInput
-                type="text"
+                type="tel"
                 name="phoneNumber"
                 label="Phone Number"
                 required
               />
-              <FormInput type="text" name="zipCode" label="Zip Code" required />
+              <FormInput
+                type="text"
+                name="zipCode"
+                label="Zip Code"
+                pattern="[0-9]*"
+                required
+              />
               <FormSelectField
                 name="budget"
                 label="Budget"
