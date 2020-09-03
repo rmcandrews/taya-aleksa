@@ -6,6 +6,15 @@ input {
 textarea {
   outline: none;
   border: none;
+  font-family: inherit;
+}
+
+.validationError {
+  margin-top: -25px;
+  margin-bottom: 15px;
+  color: red;
+  text-align: left;
+  font-size: 14px;
 }
 
 textarea:focus,
@@ -98,12 +107,11 @@ textarea:-ms-input-placeholder {
 }
 
 .contactFormTitle {
-  display: block;
-  font-size: 39px;
+  font-size: 28px;
   color: #333333;
   line-height: 1.2;
   text-align: center;
-  padding-bottom: 44px;
+  padding-bottom: 20px;
 }
 
 /*------------------------------------------------------------------
@@ -127,11 +135,11 @@ textarea:-ms-input-placeholder {
 
 .input {
   display: block;
-  width: 100%;
+  width: calc(100% - 10px);
   background: transparent;
   font-size: 16px;
   line-height: 1.2;
-  padding: 0 10px;
+  padding-left: 6px;
   font-weight: 500;
   color: hsl(0, 0%, 20%);
 }
@@ -144,6 +152,7 @@ textarea:-ms-input-placeholder {
   top: 0;
   left: 0;
   pointer-events: none;
+  padding-left: 6px;
 }
 
 .focusInput::before {
@@ -213,6 +222,12 @@ textarea.input {
   border: none;
 }
 
+.contactFormButton:disabled,
+button[disabled] {
+  background-color: #999;
+  color: #aaa;
+}
+
 .wrapContactFormButton:hover .contactForm-bgbtn {
   left: 0;
 }
@@ -280,7 +295,6 @@ textarea.input {
 
 .alertValidate::after {
   content: "\f06a";
-  font-family: FontAwesome;
   display: block;
   position: absolute;
   color: #c80000;

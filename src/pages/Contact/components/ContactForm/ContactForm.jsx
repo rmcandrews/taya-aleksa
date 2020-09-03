@@ -3,28 +3,41 @@ import { Formik, Form, Field } from "formik";
 import Select from "react-select";
 import styles from "./ContactForm.module.css";
 
-const FormInput = ({ type, name, label, required, pattern }) => {
+const FormInput = ({
+  type,
+  name,
+  label,
+  required,
+  pattern,
+  errors,
+  touched
+}) => {
   return (
-    <div className={`${styles.wrapInput} ${styles.validateInput}`}>
-      <label class={styles.labelInput} htmlFor={name}>
-        {label}
-        {required ? " *" : ""}
-      </label>
-      <Field
-        className={styles.input}
-        type={type}
-        name={name}
-        pattern={pattern}
-      />
-      <span className={styles.focusInput} />
-    </div>
+    <>
+      <div className={`${styles.wrapInput} ${styles.validateInput}`}>
+        <label className={styles.labelInput} htmlFor={name}>
+          {label}
+          {required ? " *" : ""}
+        </label>
+        <Field
+          className={styles.input}
+          type={type}
+          name={name}
+          pattern={pattern}
+        />
+        <span className={styles.focusInput} />
+      </div>
+      {errors && errors[name] && touched[name] ? (
+        <div className={styles.validationError}>{errors[name]}</div>
+      ) : null}
+    </>
   );
 };
 
 const FormTextArea = ({ type, name, label, required, placeholder }) => {
   return (
     <div className={`${styles.wrapInput} ${styles.validateInput}`}>
-      <label class={styles.labelInput} htmlFor={name}>
+      <label className={styles.labelInput} htmlFor={name}>
         {label}
         {required ? " *" : ""}
       </label>
@@ -84,30 +97,66 @@ const SelectField = ({ options, field, form }) => {
   );
 };
 
-const FormSelectField = ({ type, name, label, required, options }) => {
+const FormSelectField = ({
+  type,
+  name,
+  label,
+  required,
+  options,
+  errors,
+  touched
+}) => {
   return (
-    <div className={`${styles.wrapInput} ${styles.validateInput}`}>
-      <label class={styles.labelInput} htmlFor={name}>
-        {label}
-        {required ? " *" : ""}
-      </label>
-      <Field
-        type={type}
-        name={name}
-        component={SelectField}
-        options={options}
-      />
-      <span className={styles.focusInput} />
-    </div>
+    <>
+      <div className={`${styles.wrapInput} ${styles.validateInput}`}>
+        <label className={styles.labelInput} htmlFor={name}>
+          {label}
+          {required ? " *" : ""}
+        </label>
+        <Field
+          type={type}
+          name={name}
+          component={SelectField}
+          options={options}
+        />
+        <span className={styles.focusInput} />
+      </div>
+      {errors && errors[name] && touched[name] ? (
+        <div className={styles.validationError}>{errors[name]}</div>
+      ) : null}
+    </>
   );
 };
 
 const Contact = () => {
   return (
     <Formik
-      initialValues={{ email: "", password: "" }}
+      initialValues={{
+        name: "",
+        email: "",
+        phoneNumber: "",
+        budget: "",
+        projectType: "",
+        zipCode: "",
+        messageText: ""
+      }}
       validate={values => {
         const errors = {};
+        if (!values.name) {
+          errors.name = "Required";
+        }
+        if (!values.phoneNumber) {
+          errors.phoneNumber = "Required";
+        }
+        if (!values.zipCode) {
+          errors.zipCode = "Required";
+        }
+        if (!values.budget) {
+          errors.budget = "Required";
+        }
+        if (!values.projectType) {
+          errors.projectType = "Required";
+        }
         if (!values.email) {
           errors.email = "Required";
         } else if (
@@ -117,24 +166,56 @@ const Contact = () => {
         }
         return errors;
       }}
-      onSubmit={(values, { setSubmitting }) => {
-        setTimeout(() => {
-          alert(JSON.stringify(values, null, 2));
+      onSubmit={async (values, { setSubmitting }) => {
+        try {
+          const response = await fetch(
+            "https://c7xliptij2.execute-api.us-east-1.amazonaws.com/DeploymentStage/",
+            {
+              method: "POST",
+              headers: {
+                "Content-Type": "application/json"
+              },
+              body: JSON.stringify(values)
+            }
+          );
+          const body = await response.json();
+          if (body.status !== "Success") throw Error("Send Failed");
+        } catch (error) {
+          console.error(error);
+        } finally {
           setSubmitting(false);
-        }, 400);
+        }
       }}
     >
-      {({ isSubmitting }) => (
+      {({ isSubmitting, errors, touched, submitCount }) => (
         <div className={styles.containerContact}>
           <div className={styles.wrapContact}>
-            {/* <span className={styles.contactFormTitle}>Say Hello!</span> */}
-            <Form className={`${styles.contactForm} ${styles.validateForm}`}>
-              <FormInput type="text" name="name" label="Name" required />
-              <FormInput type="email" name="email" label="Email" required />
+            <div className={styles.contactFormTitle}>
+              Fill out the this form to inquire about a new project
+            </div>
+            <Form className={styles.contactForm} noValidate>
+              <FormInput
+                type="text"
+                name="name"
+                label="Name"
+                errors={errors}
+                touched={touched}
+                required
+              />
+              <FormInput
+                type="email"
+                name="email"
+                label="Email"
+                errors={errors}
+                touched={touched}
+                required
+              />
               <FormInput
                 type="tel"
                 name="phoneNumber"
                 label="Phone Number"
+                errors={errors}
+                touched={touched}
                 required
               />
               <FormInput
@@ -142,6 +223,8 @@ const Contact = () => {
                 name="zipCode"
                 label="Zip Code"
                 pattern="[0-9]*"
+                errors={errors}
+                touched={touched}
                 required
               />
               <FormSelectField
@@ -156,6 +239,8 @@ const Contact = () => {
                   { value: "$70,000-$100,000", label: "$70,000-$100,000" },
                   { value: "$100,000+", label: "$100,000+" }
                 ]}
+                errors={errors}
+                touched={touched}
               />
               <FormSelectField
                 name="projectType"
@@ -165,6 +250,8 @@ const Contact = () => {
                   { value: "Single Family", label: "Single Family" },
                   { value: "Condo", label: "Condo" }
                 ]}
+                errors={errors}
+                touched={touched}
               />
               <FormTextArea
                 type="text"
@@ -174,7 +261,12 @@ const Contact = () => {
               />
               <div className={styles.containerContactFormButton}>
                 <div className={styles.wrapContactFormButton}>
-                  <button className={styles.contactFormButton}>Submit</button>
+                  <button
+                    className={styles.contactFormButton}
+                    disabled={isSubmitting}
+                  >
+                    Submit
+                  </button>
                 </div>
               </div>
             </Form>

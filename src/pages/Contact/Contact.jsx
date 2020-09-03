@@ -6,40 +6,25 @@ const Contact = () => {
   return (
     <div className={styles.container}>
       <ContactForm />
-      {/* <ol className={styles.list}>
-        <li>
-          <h2>EMAIL</h2>
-          <p style={{ fontSize: 20 }}>
-            <a href="mailto: taya.aleksa@gmail.com">taya.aleksa@gmail.com</a>
-          </p>
-        </li>
-        <li>
-          <h2>SOCIALS</h2>
-          <div className={styles.socialsList}>
-            <a
-              href="https://www.instagram.com/taya.aleksa/"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              <img src={instagramIcon} alt="instagram" />
-            </a>
-            <a
-              href="https://in.pinterest.com/beasleyla/"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              <img src={pinterestIcon} alt="pinterest" />
-            </a>
-            <a
-              href="https://www.linkedin.com/in/taya-lyskanycz-b23b5a29/"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              <img src={linkedInIcon} alt="linkedin" />
-            </a>
-          </div>
-        </li>
-      </ol> */}
+      <div
+        style={{
+          paddingTop: "3rem",
+          paddingBottom: "1rem",
+          fontSize: "1.5rem"
+        }}
+      >
+        OR
+      </div>
+      <div>
+        email us at{" "}
+        <a
+          href="mailto: taya.aleksa@gmail.com"
+          style={{ textDecoration: "underline" }}
+        >
+          taya.aleksa@gmail.com
+        </a>{" "}
+        for anything else
+      </div>
     </div>
   );
 };
