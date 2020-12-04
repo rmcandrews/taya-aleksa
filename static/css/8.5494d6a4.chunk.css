@@ -1,0 +1,2 @@
+.slide-container{width:95%;height:65vh;max-width:700px;min-height:465px;margin:auto;position:relative}@media screen and (min-width:768px){.slide-container{width:80%}}.each-slide>div{background-size:auto 100%;background-position:50%;height:65vh;border-radius:5px;min-height:465px}@media screen and (min-width:768px){.each-slide>div{background-size:cover}}.logoText{max-width:75%}.logoTextContainer{padding-bottom:15px;margin-top:-15px}@media screen and (min-width:768px){.logoTextContainer{display:none}}
+/*# sourceMappingURL=8.5494d6a4.chunk.css.map */
