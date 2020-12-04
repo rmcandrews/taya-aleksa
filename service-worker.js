@@ -14,7 +14,7 @@
 importScripts("https://storage.googleapis.com/workbox-cdn/releases/4.3.1/workbox-sw.js");
 
 importScripts(
-  "/taya-aleksa/precache-manifest.d0cd99c15f72b749b9d94db6640e4297.js"
+  "/taya-aleksa/precache-manifest.5bda7a6e840452f5f550081a1814d0f3.js"
 );
 
 self.addEventListener('message', (event) => {
