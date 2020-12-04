@@ -1,7 +1,11 @@
 self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
-    "revision": "da76cbcca3f489b3a66e5182ca380259",
+    "revision": "a1ea2afe6e2192c1bee61f043fb174cb",
     "url": "/taya-aleksa/index.html"
+  },
+  {
+    "revision": "c64a2b73e6353e4f5df1",
+    "url": "/taya-aleksa/static/css/2.0ea15e93.chunk.css"
   },
   {
     "revision": "5954b62881a866d36691",
@@ -28,15 +32,15 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/taya-aleksa/static/css/9.148834ef.chunk.css"
   },
   {
-    "revision": "e6df2391ca76686e3af5",
-    "url": "/taya-aleksa/static/css/main.01cce341.chunk.css"
+    "revision": "703ce577422fc9bdcf97",
+    "url": "/taya-aleksa/static/css/main.fdc6ac6c.chunk.css"
   },
   {
     "revision": "911939d2fd88555652ff",
     "url": "/taya-aleksa/static/js/10.13ca305e.chunk.js"
   },
   {
-    "revision": "c65eedaee675cfd38c4f",
+    "revision": "c64a2b73e6353e4f5df1",
     "url": "/taya-aleksa/static/js/2.adad8b85.chunk.js"
   },
   {
@@ -76,8 +80,8 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/taya-aleksa/static/js/9.f766c8b0.chunk.js"
   },
   {
-    "revision": "e6df2391ca76686e3af5",
-    "url": "/taya-aleksa/static/js/main.41d2e071.chunk.js"
+    "revision": "703ce577422fc9bdcf97",
+    "url": "/taya-aleksa/static/js/main.ff6cf5e4.chunk.js"
   },
   {
     "revision": "5fb9b8ce6bffddc36182",
