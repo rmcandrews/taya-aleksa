@@ -16,16 +16,28 @@ let categories = [];
 const categoryNames = ["living", "bedroom", "kitchen", "bath"];
 
 categoryNames.forEach(categoryName => {
-  const categoryPath = `${imagePath}/portfolio/${categoryName}/`;
+  const imagesPath = `${imagePath}/portfolio/${categoryName}/`;
+  const photos = require(`./photos/${categoryName}.json`);
+  photos.forEach(photo => {
+    photo.src = process.env.PUBLIC_URL + photo.src;
+    const newSrcSet = [];
+    for (let i = 0; i < photo.srcSet.length; i++) {
+      newSrcSet.push(process.env.PUBLIC_URL + photo.srcSet[i]);
+    }
+    photo.srcSet = newSrcSet;
+    photo.original = process.env.PUBLIC_URL + photo.original;
+  });
   categories.push({
-    image: {
-      medium: `${categoryPath}0_cover-1000.jpg`,
-      large: `${categoryPath}0_cover-1500.jpg`,
-      small: `${categoryPath}0_cover-500.jpg`,
+    coverImage: {
+      large: `${imagesPath}0_cover-1500.jpg`,
+      medium: `${imagesPath}0_cover-1000.jpg`,
+      small: `${imagesPath}0_cover-500.jpg`,
       placeholder: placeholders[categoryName]
     },
     title: categoryName.toUpperCase(),
-    path: categoryName
+    path: categoryName,
+    imagesPath: imagesPath,
+    photos
   });
 });
 

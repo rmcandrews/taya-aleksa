@@ -4,9 +4,10 @@
 }
 
 .profilePicture {
-  filter: grayscale(100%);
+  filter: grayscale(100%) drop-shadow(2px 2px 6px rgba(149, 149, 149, 0.5));
   width: 100%;
   max-width: 380px;
+  border-radius: 5px;
 }
 
 .infoList {

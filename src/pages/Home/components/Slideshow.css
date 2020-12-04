@@ -1,5 +1,8 @@
 .slide-container {
   width: 95%;
+  height: 65vh;
+  max-width: 700px;
+  min-height: 465px;
   margin: auto;
   position: relative;
 }
@@ -11,7 +14,15 @@
 }
 
 .each-slide > div {
-  background-size: cover;
+  background-size: auto 100%;
   background-position: center;
-  height: 550px;
+  height: 65vh;
+  border-radius: 5px;
+  min-height: 465px;
+}
+
+@media screen and (min-width: 768px) {
+  .each-slide > div {
+    background-size: cover;
+  }
 }

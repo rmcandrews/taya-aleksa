@@ -1,116 +1,89 @@
 const fs = require("fs");
 const path = require("path");
+const fsPromises = fs.promises;
 const sharp = require("sharp");
 
 const portfolioCategoriesPath = "public/assets/images/portfolio/";
+const appPortfolioCategoriesPath = "/assets/images/portfolio/";
+const galleryConfigPath = "src/portfolioConfig/photos/";
 
-fs.readdir(portfolioCategoriesPath, (err, categories) => {
-  if (err) {
-    console.error("Could not list the directory.", err);
-    process.exit(1);
-  }
+const creatResizedImage = async (
+  buffer,
+  categoryPath,
+  fileName,
+  originalWidth,
+  targetResizeWidth
+) => {
+  let resizedImagePath = path.join(
+    categoryPath,
+    fileName.slice(0, -4) +
+      `-${targetResizeWidth <= 100 ? "placeholder" : targetResizeWidth}.jpg`
+  );
+  let resizedWidth =
+    originalWidth > targetResizeWidth ? targetResizeWidth : originalWidth;
+  let resizedBuffer = await sharp(buffer)
+    .resize(resizedWidth)
+    .toBuffer();
+  fs.writeFileSync(resizedImagePath, resizedBuffer);
+};
 
-  categories.forEach((category) => {
+const main = async () => {
+  const categories = await fsPromises.readdir(portfolioCategoriesPath);
+  for (const category of categories) {
     const categoryPath = portfolioCategoriesPath + category;
-    fs.readdir(categoryPath, (err, fileNames) => {
-      fileNames.forEach((fileName) => {
-        if (
-          fileName.includes(".jpg") &
-          !fileName.includes("-500.jpg") &
-          !fileName.includes("-1000.jpg") &
-          !fileName.includes("-1500.jpg") &
-          !fileName.includes("-placeholder.jpg")
-        ) {
-          let smallImagePath = path.join(
+    const categoryGalleryConfig = [];
+    const fileNames = await fsPromises.readdir(categoryPath);
+    for (const fileName of fileNames) {
+      if (
+        fileName.includes(".jpg") &
+        !fileName.includes("-500.jpg") &
+        !fileName.includes("-1000.jpg") &
+        !fileName.includes("-1500.jpg") &
+        !fileName.includes("-placeholder.jpg")
+      ) {
+        // get image metadata
+        const fileBuffer = await sharp(
+          path.join(categoryPath, fileName)
+        ).toBuffer();
+        let metadata = await sharp(fileBuffer).metadata();
+        const { width, height } = metadata;
+
+        for (const resizeWidth of [500, 1000, 1500, 100]) {
+          await creatResizedImage(
+            fileBuffer,
             categoryPath,
-            fileName.slice(0, -4) + "-500.jpg"
+            fileName,
+            width,
+            resizeWidth
           );
-          sharp(path.join(categoryPath, fileName))
-            .toBuffer()
-            .then(async (buffer) => {
-              let metadata = await sharp(buffer).metadata();
-              let newWidth;
-              if (metadata.width > 500) {
-                newWidth = 500;
-              } else {
-                newWidth = metadata.width;
-              }
-              let newFileBuffer = await sharp(buffer)
-                .resize(newWidth)
-                .toBuffer();
-              fs.writeFileSync(smallImagePath, newFileBuffer);
-            })
-            .catch((err) => {
-              console.error(err);
-            });
-          let mediumImagePath = path.join(
-            categoryPath,
-            fileName.slice(0, -4) + "-1000.jpg"
-          );
-          sharp(path.join(categoryPath, fileName))
-            .toBuffer()
-            .then(async (buffer) => {
-              let metadata = await sharp(buffer).metadata();
-              let newWidth;
-              if (metadata.width > 1000) {
-                newWidth = 1000;
-              } else {
-                newWidth = metadata.width;
-              }
-              let newFileBuffer = await sharp(buffer)
-                .resize(newWidth)
-                .toBuffer();
-              fs.writeFileSync(mediumImagePath, newFileBuffer);
-            })
-            .catch((err) => {
-              console.error(err);
-            });
-          let largeImagePath = path.join(
-            categoryPath,
-            fileName.slice(0, -4) + "-1500.jpg"
-          );
-          sharp(path.join(categoryPath, fileName))
-            .toBuffer()
-            .then(async (buffer) => {
-              let metadata = await sharp(buffer).metadata();
-              let newWidth;
-              if (metadata.width > 1500) {
-                newWidth = 1500;
-              } else {
-                newWidth = metadata.width;
-              }
-              let newFileBuffer = await sharp(buffer)
-                .resize(newWidth)
-                .toBuffer();
-              fs.writeFileSync(largeImagePath, newFileBuffer);
-            })
-            .catch((err) => {
-              console.error(err);
-            });
-          let placeholderImagePath = path.join(
-            categoryPath,
-            fileName.slice(0, -4) + "-placeholder.jpg"
-          );
-          sharp(path.join(categoryPath, fileName))
-            .toBuffer()
-            .then(async (buffer) => {
-              let metadata = await sharp(buffer).metadata();
-              let newWidth;
-              if (metadata.width > 100) {
-                newWidth = 100;
-              } else {
-                newWidth = metadata.width;
-              }
-              let newFileBuffer = await sharp(buffer)
-                .resize(newWidth)
-                .toBuffer();
-              fs.writeFileSync(placeholderImagePath, newFileBuffer);
-            })
-            .catch((err) => {
-              console.error(err);
-            });
         }
-      });
-    });
-  });
-});
+
+        const baseFileName = fileName.slice(0, -4);
+        const baseFilePath =
+          appPortfolioCategoriesPath + category + "/" + baseFileName;
+
+        const photoConfig = {
+          src: baseFilePath + `-1000.jpg`,
+          srcSet: [
+            `${baseFilePath}-500.jpg 500w`,
+            `${baseFilePath}-1000.jpg 1000w`,
+            `${baseFilePath}-1500.jpg 1500w`,
+          ],
+          sizes: ["(max-width: 571px) 75vw, (max-width: 971px) 45vw, 30vw"],
+          width,
+          height,
+          original: `${baseFilePath}.jpg`,
+        };
+
+        categoryGalleryConfig.push(photoConfig);
+      }
+    }
+    // Create gallery photo config
+    fs.writeFileSync(
+      galleryConfigPath + category + ".json",
+      JSON.stringify(categoryGalleryConfig)
+    );
+  }
+};
+
+main();

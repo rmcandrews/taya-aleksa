@@ -1,10 +1,10 @@
 import React from "react";
-import "./Portfolio.css";
+import styles from "./Portfolio.module.scss";
 import { Switch, Route, Link, Redirect } from "react-router-dom";
 import { Grid, Row, Col } from "react-flexbox-grid";
 import PortfolioCategory from "./PortfolioCategory";
 import ProgressiveImage from "react-progressive-graceful-image";
-import categories from "./categories";
+import categories from "../../portfolioConfig";
 
 let subPaths = [];
 categories.forEach(category => {
@@ -12,30 +12,28 @@ categories.forEach(category => {
 });
 
 const categoryOverviews = categories.map(category => {
-  const { image, title, path } = category;
+  const { coverImage, title, path } = category;
   return (
-    <Col xs={12} sm={6} lg={4} className="col" key={title}>
+    <Col xs={12} sm={6} lg={4} className={styles.col} key={title}>
       <Link to={`/portfolio/${path}`}>
         <div style={{ position: "relative" }}>
           <ProgressiveImage
-            src={image.medium}
+            src={coverImage.medium}
             srcSetData={{
-              srcSet: `${image.small} 500w, ${image.medium} 1000w, ${image.large} 1500w`,
-              sizes: "(max-width: 575px) 75vw, (max-width: 575px) 45vw, 30vw"
+              srcSet: `${coverImage.small} 500w, ${coverImage.medium} 1000w, ${coverImage.large} 1500w`,
+              sizes: "(max-width: 575px) 75vw, (max-width: 991px) 45vw, 30vw"
             }}
-            placeholder={image.placeholder}
+            placeholder={coverImage.placeholder}
           >
             {(src, loading, srcSetData) => (
               <img
                 width="90%"
-                style={{
-                  height: "auto",
-                  opacity: loading ? 0.75 : 1
-                }}
+                style={{ opacity: loading ? 0.75 : 1 }}
                 src={src}
                 srcSet={srcSetData.srcSet}
                 sizes={srcSetData.sizes}
                 alt={title}
+                className={styles.categoryImage}
               />
             )}
           </ProgressiveImage>

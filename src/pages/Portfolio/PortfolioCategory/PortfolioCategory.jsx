@@ -1,8 +1,9 @@
 import React, { useEffect } from "react";
 import { NavLink } from "react-router-dom";
 import Sticky from "react-sticky-el"; // TODO: Replace with css sticky
-import categories from "../categories";
+import categories from "../../../portfolioConfig";
 import "./PortfolioCategory.css";
+import PortfolioCategoryGallery from "./components/PortfolioCategoryGallery";
 
 const desktopActiveLinkStyle = {
   fontWeight: 500,
@@ -60,9 +61,9 @@ const PortfolioCategory = ({ match }) => {
   const categoryPath = match.path.split("/")[2];
   const category = categories.find(category => category.path === categoryPath);
   return (
-    <div style={{ height: 2000 }}>
+    <div>
       <PortfolioHeader />
-      <div>{category.title}</div>
+      <PortfolioCategoryGallery category={category} />
     </div>
   );
 };

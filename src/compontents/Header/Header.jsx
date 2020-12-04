@@ -109,7 +109,7 @@ function Header() {
           <img
             src={blackLogo}
             alt="Taya Aleksa Interiors Logo"
-            height={60}
+            height={50}
             style={{ position: "block" }}
           />
         </div>
@@ -117,8 +117,8 @@ function Header() {
           <img
             src={blackLogoText}
             alt="Taya Aleksa Interiors"
-            height={25}
-            style={{ paddingTop: 20, paddingBottom: 10 }}
+            height={20}
+            style={{ margin: 0 }}
           />
         </div>
         <Sticky stickyClassName="sticky">
