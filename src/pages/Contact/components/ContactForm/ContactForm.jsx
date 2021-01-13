@@ -138,7 +138,7 @@ const Contact = () => {
         budget: "",
         projectType: "",
         zipCode: "",
-        messageText: ""
+        message: ""
       }}
       validate={values => {
         const errors = {};
@@ -255,7 +255,7 @@ const Contact = () => {
               />
               <FormTextArea
                 type="text"
-                name="messageText"
+                name="message"
                 label="Message"
                 placeholder="Tell us a bit about the project"
               />
