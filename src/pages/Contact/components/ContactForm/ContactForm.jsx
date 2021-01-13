@@ -169,7 +169,7 @@ const Contact = () => {
       onSubmit={async (values, { setSubmitting }) => {
         try {
           const response = await fetch(
-            "https://c7xliptij2.execute-api.us-east-1.amazonaws.com/DeploymentStage/",
+            "https://soxig0htxb.execute-api.us-east-1.amazonaws.com/contactFormMessage",
             {
               method: "POST",
               headers: {
