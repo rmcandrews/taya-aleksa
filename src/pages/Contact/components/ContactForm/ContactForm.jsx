@@ -1,16 +1,21 @@
-import React from "react";
+import React, { useState } from "react";
 import { Formik, Form, Field } from "formik";
 import Select from "react-select";
 import styles from "./ContactForm.module.css";
 
+const sleep = ms => new Promise(r => setTimeout(r, ms));
+
 const FormInput = ({
+  disabled,
   type,
   name,
   label,
   required,
   pattern,
   errors,
-  touched
+  touched,
+  minLength,
+  maxLength
 }) => {
   return (
     <>
@@ -24,6 +29,9 @@ const FormInput = ({
           type={type}
           name={name}
           pattern={pattern}
+          maxLength={maxLength || "10000000"}
+          minLength={minLength || "0"}
+          disabled={disabled}
         />
         <span className={styles.focusInput} />
       </div>
@@ -34,7 +42,14 @@ const FormInput = ({
   );
 };
 
-const FormTextArea = ({ type, name, label, required, placeholder }) => {
+const FormTextArea = ({
+  type,
+  name,
+  label,
+  required,
+  placeholder,
+  disabled
+}) => {
   return (
     <div className={`${styles.wrapInput} ${styles.validateInput}`}>
       <label className={styles.labelInput} htmlFor={name}>
@@ -47,13 +62,14 @@ const FormTextArea = ({ type, name, label, required, placeholder }) => {
         name={name}
         component="textarea"
         placeholder={placeholder}
+        disabled={disabled}
       />
       <span className={styles.focusInput} />
     </div>
   );
 };
 
-const SelectField = ({ options, field, form }) => {
+const SelectField = ({ options, field, form, disabled }) => {
   const customStyle = {
     control: base => ({
       ...base,
@@ -93,6 +109,7 @@ const SelectField = ({ options, field, form }) => {
           primary: "black"
         }
       })}
+      isDisabled={disabled}
     />
   );
 };
@@ -104,7 +121,8 @@ const FormSelectField = ({
   required,
   options,
   errors,
-  touched
+  touched,
+  disabled
 }) => {
   return (
     <>
@@ -118,6 +136,7 @@ const FormSelectField = ({
           name={name}
           component={SelectField}
           options={options}
+          disabled={disabled}
         />
         <span className={styles.focusInput} />
       </div>
@@ -129,6 +148,7 @@ const FormSelectField = ({
 };
 
 const Contact = () => {
+  const [hasSucceeded, setHasSucceeded] = useState(false);
   return (
     <Formik
       initialValues={{
@@ -167,6 +187,7 @@ const Contact = () => {
         return errors;
       }}
       onSubmit={async (values, { setSubmitting }) => {
+        await sleep(1000);
         try {
           const response = await fetch(
             "https://soxig0htxb.execute-api.us-east-1.amazonaws.com/contactFormMessage",
@@ -180,6 +201,7 @@ const Contact = () => {
           );
           const body = await response.json();
           if (body.status !== "Success") throw Error("Send Failed");
+          setHasSucceeded(true);
         } catch (error) {
           console.error(error);
         } finally {
@@ -187,7 +209,7 @@ const Contact = () => {
         }
       }}
     >
-      {({ isSubmitting, errors, touched, submitCount }) => (
+      {({ isSubmitting, errors, touched }) => (
         <div className={styles.containerContact}>
           <div className={styles.wrapContact}>
             <div className={styles.contactFormTitle}>
@@ -201,6 +223,7 @@ const Contact = () => {
                 errors={errors}
                 touched={touched}
                 required
+                disabled={hasSucceeded || isSubmitting}
               />
               <FormInput
                 type="email"
@@ -209,23 +232,29 @@ const Contact = () => {
                 errors={errors}
                 touched={touched}
                 required
+                disabled={hasSucceeded || isSubmitting}
               />
               <FormInput
                 type="tel"
                 name="phoneNumber"
                 label="Phone Number"
+                minLength="10"
+                maxLength="11"
                 errors={errors}
                 touched={touched}
                 required
+                disabled={hasSucceeded || isSubmitting}
               />
               <FormInput
                 type="text"
                 name="zipCode"
                 label="Zip Code"
                 pattern="[0-9]*"
+                maxLength="5"
                 errors={errors}
                 touched={touched}
                 required
+                disabled={hasSucceeded || isSubmitting}
               />
               <FormSelectField
                 name="budget"
@@ -241,6 +270,7 @@ const Contact = () => {
                 ]}
                 errors={errors}
                 touched={touched}
+                disabled={hasSucceeded || isSubmitting}
               />
               <FormSelectField
                 name="projectType"
@@ -252,23 +282,47 @@ const Contact = () => {
                 ]}
                 errors={errors}
                 touched={touched}
+                disabled={hasSucceeded || isSubmitting}
               />
               <FormTextArea
                 type="text"
                 name="message"
                 label="Message"
                 placeholder="Tell us a bit about the project"
+                disabled={hasSucceeded || isSubmitting}
               />
-              <div className={styles.containerContactFormButton}>
-                <div className={styles.wrapContactFormButton}>
-                  <button
-                    className={styles.contactFormButton}
-                    disabled={isSubmitting}
-                  >
-                    Submit
-                  </button>
+              {!hasSucceeded ? (
+                <div className={styles.containerContactFormButton}>
+                  <div className={styles.wrapContactFormButton}>
+                    <button
+                      className={styles.contactFormButton}
+                      disabled={isSubmitting}
+                      style={{ color: isSubmitting ? "red" : "white" }}
+                    >
+                      {isSubmitting ? (
+                        <div className={styles.loadingIcon}>
+                          <div></div>
+                          <div></div>
+                          <div></div>
+                        </div>
+                      ) : (
+                        "Submit"
+                      )}
+                    </button>
+                  </div>
                 </div>
-              </div>
+              ) : (
+                <div
+                  style={{
+                    fontSize: "1.25rem",
+                    textAlign: "center",
+                    lineHeight: 1.2
+                  }}
+                >
+                  Your information has been submitted.<br></br>We will get back
+                  to you soon!
+                </div>
+              )}
             </Form>
           </div>
         </div>

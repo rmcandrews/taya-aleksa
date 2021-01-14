@@ -6,16 +6,8 @@ const Contact = () => {
   return (
     <div className={styles.container}>
       <ContactForm />
-      <div
-        style={{
-          paddingTop: "3rem",
-          paddingBottom: "1rem",
-          fontSize: "1.5rem"
-        }}
-      >
-        OR
-      </div>
-      <div>
+      <div className={styles.or}>OR</div>
+      <div className={styles.emailUs}>
         email us at{" "}
         <a
           href="mailto: taya.aleksa@gmail.com"

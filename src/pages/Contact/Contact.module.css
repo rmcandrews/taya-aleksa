@@ -25,3 +25,18 @@
 .socialsList > a > img {
   padding: 0 1rem;
 }
+
+.or {
+  padding-bottom: 15px;
+  font-size: 1rem;
+  color: #555;
+}
+
+.emailUs {
+  font-size: 1.25rem;
+  color: #555;
+}
+
+.emailUs a {
+  color: #555;
+}
