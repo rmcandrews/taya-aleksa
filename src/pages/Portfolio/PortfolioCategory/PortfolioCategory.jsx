@@ -42,8 +42,7 @@ const PortfolioHeader = () => {
               <DesktopLink to="/portfolio/bedroom">BEDROOM</DesktopLink>
               <DesktopLink to="/portfolio/kitchen">KITCHEN</DesktopLink>
               <DesktopLink to="/portfolio/bath">BATH</DesktopLink>
-              <DesktopLink to="/portfolio/outdoor">OUTDOOR</DesktopLink>
-              <DesktopLink to="/portfolio/other">OTHER</DesktopLink>
+              <DesktopLink to="/portfolio/styled">STYLED</DesktopLink>
             </ul>
           </nav>
         </header>

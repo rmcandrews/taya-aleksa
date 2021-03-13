@@ -2,18 +2,20 @@ import bathPlaceholder from "./placeholders/bath.jpg";
 import bedroomPlaceholder from "./placeholders/bedroom.jpg";
 import kitchenPlaceholder from "./placeholders/kitchen.jpg";
 import livingPlaceholder from "./placeholders/living.jpg";
+import styledPlaceholder from "./placeholders/styled.jpg";
 
 const placeholders = {
   bath: bathPlaceholder,
   bedroom: bedroomPlaceholder,
   kitchen: kitchenPlaceholder,
-  living: livingPlaceholder
+  living: livingPlaceholder,
+  styled: styledPlaceholder
 };
 
 const imagePath = process.env.PUBLIC_URL + "/assets/images";
 
 let categories = [];
-const categoryNames = ["living", "bedroom", "kitchen", "bath"];
+const categoryNames = ["living", "bedroom", "kitchen", "bath", "styled"];
 
 categoryNames.forEach(categoryName => {
   const imagesPath = `${imagePath}/portfolio/${categoryName}/`;
