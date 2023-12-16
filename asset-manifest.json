@@ -1,11 +1,11 @@
 {
   "files": {
     "main.css": "/taya-aleksa/static/css/main.91725c49.css",
-    "main.js": "/taya-aleksa/static/js/main.55ff12bd.js",
+    "main.js": "/taya-aleksa/static/js/main.9076d5d2.js",
     "static/css/956.5149371e.chunk.css": "/taya-aleksa/static/css/956.5149371e.chunk.css",
     "static/js/956.ea723594.chunk.js": "/taya-aleksa/static/js/956.ea723594.chunk.js",
     "static/css/27.0f339d64.chunk.css": "/taya-aleksa/static/css/27.0f339d64.chunk.css",
-    "static/js/27.5899d1cf.chunk.js": "/taya-aleksa/static/js/27.5899d1cf.chunk.js",
+    "static/js/27.0fa6df6c.chunk.js": "/taya-aleksa/static/js/27.0fa6df6c.chunk.js",
     "static/css/190.34977906.chunk.css": "/taya-aleksa/static/css/190.34977906.chunk.css",
     "static/js/190.1a2b4f49.chunk.js": "/taya-aleksa/static/js/190.1a2b4f49.chunk.js",
     "static/css/693.b08fdcd5.chunk.css": "/taya-aleksa/static/css/693.b08fdcd5.chunk.css",
@@ -19,11 +19,11 @@
     "index.html": "/taya-aleksa/index.html",
     "static/media/Logo_Black.svg": "/taya-aleksa/static/media/Logo_Black.92cb2d3504f4f17f51b341df11b02487.svg",
     "main.91725c49.css.map": "/taya-aleksa/static/css/main.91725c49.css.map",
-    "main.55ff12bd.js.map": "/taya-aleksa/static/js/main.55ff12bd.js.map",
+    "main.9076d5d2.js.map": "/taya-aleksa/static/js/main.9076d5d2.js.map",
     "956.5149371e.chunk.css.map": "/taya-aleksa/static/css/956.5149371e.chunk.css.map",
     "956.ea723594.chunk.js.map": "/taya-aleksa/static/js/956.ea723594.chunk.js.map",
     "27.0f339d64.chunk.css.map": "/taya-aleksa/static/css/27.0f339d64.chunk.css.map",
-    "27.5899d1cf.chunk.js.map": "/taya-aleksa/static/js/27.5899d1cf.chunk.js.map",
+    "27.0fa6df6c.chunk.js.map": "/taya-aleksa/static/js/27.0fa6df6c.chunk.js.map",
     "190.34977906.chunk.css.map": "/taya-aleksa/static/css/190.34977906.chunk.css.map",
     "190.1a2b4f49.chunk.js.map": "/taya-aleksa/static/js/190.1a2b4f49.chunk.js.map",
     "693.b08fdcd5.chunk.css.map": "/taya-aleksa/static/css/693.b08fdcd5.chunk.css.map",
@@ -35,6 +35,6 @@
   },
   "entrypoints": [
     "static/css/main.91725c49.css",
-    "static/js/main.55ff12bd.js"
+    "static/js/main.9076d5d2.js"
   ]
 }
