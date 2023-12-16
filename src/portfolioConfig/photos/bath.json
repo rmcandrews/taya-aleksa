@@ -1,17 +1,5 @@
 [
   {
-    "src": "/assets/images/portfolio/bath/00_cover-1000.jpg",
-    "srcSet": [
-      "/assets/images/portfolio/bath/00_cover-500.jpg 500w",
-      "/assets/images/portfolio/bath/00_cover-1000.jpg 1000w",
-      "/assets/images/portfolio/bath/00_cover-1500.jpg 1500w"
-    ],
-    "sizes": ["(max-width: 571px) 75vw, (max-width: 971px) 45vw, 30vw"],
-    "width": 1500,
-    "height": 1000,
-    "original": "/assets/images/portfolio/bath/00_cover.jpg"
-  },
-  {
     "src": "/assets/images/portfolio/bath/01-1000.jpg",
     "srcSet": [
       "/assets/images/portfolio/bath/01-500.jpg 500w",
@@ -118,6 +106,18 @@
     "width": 999,
     "height": 1500,
     "original": "/assets/images/portfolio/bath/09.jpg"
+  },
+  {
+    "src": "/assets/images/portfolio/bath/0_cover-1000.jpg",
+    "srcSet": [
+      "/assets/images/portfolio/bath/0_cover-500.jpg 500w",
+      "/assets/images/portfolio/bath/0_cover-1000.jpg 1000w",
+      "/assets/images/portfolio/bath/0_cover-1500.jpg 1500w"
+    ],
+    "sizes": ["(max-width: 571px) 75vw, (max-width: 971px) 45vw, 30vw"],
+    "width": 1500,
+    "height": 1000,
+    "original": "/assets/images/portfolio/bath/0_cover.jpg"
   },
   {
     "src": "/assets/images/portfolio/bath/10-1000.jpg",
