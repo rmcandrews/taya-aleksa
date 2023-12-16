@@ -13,6 +13,7 @@ categories.forEach(category => {
 
 const categoryOverviews = categories.map(category => {
   const { coverImage, title, path } = category;
+  console.log(coverImage);
   return (
     <Col xs={12} sm={6} lg={4} className={styles.col} key={title}>
       <Link to={`/portfolio/${path}`}>
