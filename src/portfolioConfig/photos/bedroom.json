@@ -24,6 +24,18 @@
     "original": "/assets/images/portfolio/bedroom/1.jpg"
   },
   {
+    "src": "/assets/images/portfolio/bedroom/10-1000.jpg",
+    "srcSet": [
+      "/assets/images/portfolio/bedroom/10-500.jpg 500w",
+      "/assets/images/portfolio/bedroom/10-1000.jpg 1000w",
+      "/assets/images/portfolio/bedroom/10-1500.jpg 1500w"
+    ],
+    "sizes": ["(max-width: 571px) 75vw, (max-width: 971px) 45vw, 30vw"],
+    "width": 768,
+    "height": 1024,
+    "original": "/assets/images/portfolio/bedroom/10.jpg"
+  },
+  {
     "src": "/assets/images/portfolio/bedroom/2-1000.jpg",
     "srcSet": [
       "/assets/images/portfolio/bedroom/2-500.jpg 500w",
@@ -58,5 +70,65 @@
     "width": 1068,
     "height": 1600,
     "original": "/assets/images/portfolio/bedroom/4.jpg"
+  },
+  {
+    "src": "/assets/images/portfolio/bedroom/5-1000.jpg",
+    "srcSet": [
+      "/assets/images/portfolio/bedroom/5-500.jpg 500w",
+      "/assets/images/portfolio/bedroom/5-1000.jpg 1000w",
+      "/assets/images/portfolio/bedroom/5-1500.jpg 1500w"
+    ],
+    "sizes": ["(max-width: 571px) 75vw, (max-width: 971px) 45vw, 30vw"],
+    "width": 768,
+    "height": 1024,
+    "original": "/assets/images/portfolio/bedroom/5.jpg"
+  },
+  {
+    "src": "/assets/images/portfolio/bedroom/6-1000.jpg",
+    "srcSet": [
+      "/assets/images/portfolio/bedroom/6-500.jpg 500w",
+      "/assets/images/portfolio/bedroom/6-1000.jpg 1000w",
+      "/assets/images/portfolio/bedroom/6-1500.jpg 1500w"
+    ],
+    "sizes": ["(max-width: 571px) 75vw, (max-width: 971px) 45vw, 30vw"],
+    "width": 768,
+    "height": 1024,
+    "original": "/assets/images/portfolio/bedroom/6.jpg"
+  },
+  {
+    "src": "/assets/images/portfolio/bedroom/7-1000.jpg",
+    "srcSet": [
+      "/assets/images/portfolio/bedroom/7-500.jpg 500w",
+      "/assets/images/portfolio/bedroom/7-1000.jpg 1000w",
+      "/assets/images/portfolio/bedroom/7-1500.jpg 1500w"
+    ],
+    "sizes": ["(max-width: 571px) 75vw, (max-width: 971px) 45vw, 30vw"],
+    "width": 768,
+    "height": 1024,
+    "original": "/assets/images/portfolio/bedroom/7.jpg"
+  },
+  {
+    "src": "/assets/images/portfolio/bedroom/8-1000.jpg",
+    "srcSet": [
+      "/assets/images/portfolio/bedroom/8-500.jpg 500w",
+      "/assets/images/portfolio/bedroom/8-1000.jpg 1000w",
+      "/assets/images/portfolio/bedroom/8-1500.jpg 1500w"
+    ],
+    "sizes": ["(max-width: 571px) 75vw, (max-width: 971px) 45vw, 30vw"],
+    "width": 1024,
+    "height": 768,
+    "original": "/assets/images/portfolio/bedroom/8.jpg"
+  },
+  {
+    "src": "/assets/images/portfolio/bedroom/9-1000.jpg",
+    "srcSet": [
+      "/assets/images/portfolio/bedroom/9-500.jpg 500w",
+      "/assets/images/portfolio/bedroom/9-1000.jpg 1000w",
+      "/assets/images/portfolio/bedroom/9-1500.jpg 1500w"
+    ],
+    "sizes": ["(max-width: 571px) 75vw, (max-width: 971px) 45vw, 30vw"],
+    "width": 1024,
+    "height": 768,
+    "original": "/assets/images/portfolio/bedroom/9.jpg"
   }
 ]
